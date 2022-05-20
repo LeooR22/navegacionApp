@@ -16,6 +16,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {styles} from '../theme/appTheme';
+import {Tabs} from './Tabs';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 const Drawer = createDrawerNavigator();
 
@@ -30,9 +32,9 @@ export const MenuLateral = () => {
       }}
       drawerContent={props => <MenuInterno {...props} />}>
       <Drawer.Screen
-        name="StackNavigator"
+        name="Tabs"
         // options={{title: 'Home'}}
-        component={StackNavigator}
+        component={Tabs}
       />
       <Drawer.Screen
         name="SettingsScreen"
@@ -59,14 +61,16 @@ const MenuInterno = ({navigation}: DrawerContentComponentProps) => {
       {/* Opciones de menu  */}
       <View style={styles.menuContainer}>
         <TouchableOpacity
-          style={styles.menuBoton}
-          onPress={() => navigation.navigate('StackNavigator')}>
+          style={{...styles.menuBoton, flexDirection: 'row'}}
+          onPress={() => navigation.navigate('Tabs')}>
+          <Icon name={'medical-outline'} size={20} color={'black'} />
           <Text style={styles.menuTexto}>Navegacion</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
-          style={styles.menuBoton}
+          style={{...styles.menuBoton, flexDirection: 'row'}}
           onPress={() => navigation.navigate('SettingsScreen')}>
+          <Icon name={'mic-circle-outline'} size={30} color={'black'} />
           <Text style={styles.menuTexto}>Ajustes</Text>
         </TouchableOpacity>
       </View>

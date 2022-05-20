@@ -22,6 +22,7 @@ export const StackNavigator = () => {
     <Stack.Navigator
       // initialRouteName="Pagina2Screen"
       screenOptions={{
+        headerShown: false,
         headerTintColor: 'black',
         headerStyle: {
           backgroundColor: 'white',
